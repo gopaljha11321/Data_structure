@@ -1,0 +1,143 @@
+// //queue store a list of items in which an item can be inserted in one end & remove from the other end only (FIFO)
+// #include<iostream>
+// #define a 10
+// using namespace std;
+// class queue
+// {
+//     int arr[a];
+//     int front;
+//     int back;
+//     public:
+// // intial perameter of the queue 
+//         queue()
+//         {
+//             front=-1;
+//             back=-1;
+
+//         }
+// // insertion in queue or known as enqueue
+//         void enqueue (int b)
+//         {
+//             if(back==a-1)
+//             {
+//                 cout<<"queue is overflow";
+//                 return ;
+//             }
+//             back++;
+//             arr[back]=b;
+//             if(front==-1)
+//             {
+//                 front++;
+//             }
+//         }
+// // pop in queue or known as dequeue
+//         void dequeue()
+//         {
+//             if(front>back||front==-1)
+//             {
+//                 cout<<"queue is empty"<<endl;
+//             }
+//             front++;
+//         }
+// //print top of the queue or known as peek 
+//         int peek()
+//         {
+//             if(front>back||front==-1)
+//             {
+//                 cout<<"queue is empty"<<endl;
+//             }
+//             return arr[front];
+//         }
+// // check queue is empty are not 
+//         bool empty()
+//         {
+//             if(front>back||front==-1)
+//             {
+//                 return true;
+//             }
+//             return false;
+//         }
+
+// };
+// int main()
+// {
+//     queue q;
+//     q.enqueue(5);
+//     q.enqueue(6);
+//     q.enqueue(7);
+//     q.enqueue(8);
+//     cout<<q.peek()<<endl;
+//     q.dequeue();
+//     cout<<q.peek()<<endl;
+//     q.dequeue();
+//     cout<<q.peek()<<endl;
+//     q.dequeue();
+//     cout<<q.peek()<<endl;
+//     q.dequeue();
+//     cout<<q.peek()<<endl;
+//     cout<<q.empty()<<endl;
+// }
+//queue program using queue stl
+// #include<iostream>
+// #include<queue>
+// using namespace std;
+// int main()
+// {
+//     queue<int> qu;
+//     qu.push(56);
+//     qu.push(65);
+//     qu.push(75);
+//         cout<<qu.front()<<endl;
+//         qu.pop();
+//         cout<<qu.front()<<endl;
+    
+// }
+//queue using stack;
+#include<iostream>
+#include<stack>
+#include<vector>
+using namespace std;
+void pop(stack<int> &st)
+{
+    stack<int>st1;
+    int size=st.size();
+    for(int i=0;i<size;i++)
+    {
+        int temp;
+        temp=st.top();
+        st.pop();
+        st1.push(temp);
+    }
+    st1.pop();
+    for(int i=0;i<st1.size();i++)
+    {
+        int temp;
+        temp=st1.top();
+        st1.pop();
+        st.push(temp);
+    }
+}
+int top(stack<int> st)
+{
+     stack<int>st1;
+    int size=st.size();
+    for(int i=0;i<size;i++)
+    {
+        int temp;
+        temp=st.top();
+        st.pop();
+        st1.push(temp);
+    }
+    return st1.top();
+}
+int main()
+{
+    stack<int> queue;
+    queue.push(56);
+    queue.push(65);
+    queue.push(75);
+    queue.push(85);
+    cout<<top(queue)<<endl;
+    pop(queue);
+    cout<<top(queue);
+}
